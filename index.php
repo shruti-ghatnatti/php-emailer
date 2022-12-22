@@ -8,10 +8,10 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
-$from = "support@birthdaylahariya.com";
-$fromName = "Birthday Lahariya Zee Biskope";
-$to = "shruti.ghatnatti@tecvololabs.com";
-$attachment = "landing-page.jpg";
+$from = "example@example.com";
+$fromName = "From Name";
+$to = "to@address.com";
+$attachment = "text.png";
 $template = "email_template.php";
 function send_email ($to, $fromName, $from, $subject, $details, $attachment){
    //Create a new PHPMailer instance
@@ -20,11 +20,11 @@ function send_email ($to, $fromName, $from, $subject, $details, $attachment){
     $mail->isSMTP();
     $mail->isHTML(true);  
     //Set the hostname of the mail server
-    $mail->Host = 'mail.smtp2go.com';
-    $mail->Port = 2525;
+    $mail->Host = 'host';
+    $mail->Port = 'port';
     $mail->SMTPAuth = true;
-    $mail->Username = 'coevento';
-    $mail->Password = 'U7JyPVMcPbJU';
+    $mail->Username = 'username';
+    $mail->Password = 'password';
     $mail->setFrom($from, $fromName);
     $mail->addReplyTo($from, $fromName);
     $mail->addAddress($to, $details['firstName']);
@@ -58,6 +58,6 @@ function prepare_html_body($details, $template)
 }
 
 
-send_email($to, $fromName, $from, "Zee Biskope Test Email", array("firstName" => "Shruti Ghatnatti", "message"=> "Welcome to the Birthday Party"), $attachment);
+send_email($to, $fromName, $from, "SUbject", array("firstName" => "First Name", "message"=> "Welcome to the Birthday Party"), $attachment);
 
 
